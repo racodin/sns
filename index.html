@@ -16,19 +16,20 @@
 
 <body>
   <button
-    onclick="share.facebook({title: '타이틀1111', image: 'https://img.sa.nexon.com/images/common/sns2.jpg'})">공유2</button>
+    onclick="share.facebook({url: 'https://racodin.github.io/sns?1', title: '타이틀1111', image: 'https://img.sa.nexon.com/images/common/sns2.jpg'})">공유1</button>
   <button
-    onclick="share.facebook({title: '타이틀2222', image: 'https://globalvx.dn.nexoncdn.co.kr/Web/official/page/meta.jpg'})">공유3</button>
-  <button>공유1</button>
+    onclick="share.facebook({url: 'https://racodin.github.io/sns?2', title: '타이틀2222', image: 'https://globalvx.dn.nexoncdn.co.kr/Web/official/page/meta.jpg'})">공유2</button>
+  <button>공유3</button>
   <button>공유4</button>
 
   <script>
     const share = {
       facebook({ title, image }) {
         if (!title || !image) return;
+        document.querySelectorAll('meta[property=og\\:url]')[0].setAttribute('content', url);
         document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
         document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
-        window.open(`http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns/&title=${title}&picture=${image}`)
+        window.open(`http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns`, 'toolbar=0,status=0,width=655,height=520');
       }
     }
   </script>
