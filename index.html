@@ -1,59 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- You can use Open Graph tags to customize link previews.
-  Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-  <!-- <meta property="og:url"           content="platformdev-team.nexon-gt.com/sns/index.html" />
-  <meta property="og:type"          content="arti" />
-  <meta property="og:title"         content="Your Website Title" />
-  <meta property="og:description"   content="Your description" />
-  <meta property="og:image"         content="https://img.sa.nexon.com/images/common/sns2.jpg" /> -->
-
-  <meta property="og:url" content="https://sa.nexon.com/news/events/view.aspx?n4ArticleSN=1578">
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="VEILED EXPERTS" />
-  <meta property="og:description" content="대한민국 대표 FPS 서든어택" />
-  <meta property="og:image" content="https://img.sa.nexon.com/images/common/sns2.jpg" />
+  <meta property="og:url" content="https://www.youtube.com/watch?v=OUjUr5ZtY38" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Website Title" />
+  <meta property="og:description" content="Your description" />
+  <meta property="og:image" content="https://i.ytimg.com/vi/OUjUr5ZtY38/maxresdefault.jpg" />
 
   <title>Document</title>
 </head>
+
 <body>
+  <button
+    onclick="share.facebook({title: '타이틀1111', image: 'https://img.sa.nexon.com/images/common/sns2.jpg'})">공유2</button>
+  <button
+    onclick="share.facebook({title: '타이틀2222', image: 'https://globalvx.dn.nexoncdn.co.kr/Web/official/page/meta.jpg'})">공유3</button>
+  <button>공유1</button>
+  <button>공유4</button>
 
-  <!-- <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v18.0&appId=1455043358088505" nonce="7dZx5gM7"></script>
-
-  <div class="fb-share-button" data-href="https://sa.nexon.com/news/events/view.aspx?n4ArticleSN=1578" data-layout="" data-size="">
-    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sa.nexon.com/news/events/view.aspx?n4ArticleSN=1578&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유</a>
-  </div> -->
-  
-
-  <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
   <script>
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-  <!-- Your share button code -->
-  <div class="fb-share-button" data-href="https://racodin.github.io/sns/" data-layout="button_count"></div>
-
-  <script
-  src="https://code.jquery.com/jquery-3.7.1.slim.js"
-  integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
-  crossorigin="anonymous"></script>
-  <script>
-    $(".fb-share-button").on("click", () => {
-      $('meta[name=og\\:title]').attr('content', "[피니지] 오만의 탑: 지하 신전 예고 | 지옥의 전장에서 기다리겠다  - 미디어 : 리니지 - NCSOFT");
-      $('meta[name=og\\:image]').attr('content', "https://assets.playnccdn.com/lineage/v1/img/meta/lineage_fb.jpg");
-    });
+    const share = {
+      facebook({ title, image }) {
+        if (!title || !image) return;
+        document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
+        document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
+        window.open('http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns/')
+      }
+    }
   </script>
 </body>
+
 </html>
