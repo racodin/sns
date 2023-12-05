@@ -43,7 +43,17 @@
   </script>
 
   <!-- Your share button code -->
-  <div class="fb-share-button" data-href="https://lineage.plaync.com/board/movie/view?articleId=652674d5e08a821fd62f3cbc" data-layout="button_count"></div>
+  <div class="fb-share-button" data-href="https://racodin.github.io/sns/" data-layout="button_count"></div>
 
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.slim.js"
+  integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+  crossorigin="anonymous"></script>
+  <script>
+    $(".fb-share-button").on("click", () => {
+      $('meta[name=og\\:title]').attr('content', "[피니지] 오만의 탑: 지하 신전 예고 | 지옥의 전장에서 기다리겠다  - 미디어 : 리니지 - NCSOFT");
+      $('meta[name=og\\:image]').attr('content', "https://assets.playnccdn.com/lineage/v1/img/meta/lineage_fb.jpg");
+    });
+  </script>
 </body>
 </html>
