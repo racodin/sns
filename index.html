@@ -29,7 +29,7 @@
         document.querySelectorAll('meta[property=og\\:url]')[0].setAttribute('content', url);
         document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
         document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
-        window.open(`http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns`, 'toolbar=0,status=0,width=655,height=520');
+        window.open(`http://www.facebook.com/sharer.php?u=${url}`, 'toolbar=0,status=0,width=655,height=520');
       }
     }
   </script>
