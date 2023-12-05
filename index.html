@@ -24,8 +24,8 @@
 
   <script>
     const share = {
-      facebook({ title, image }) {
-        if (!title || !image) return;
+      facebook({ url, title, image }) {
+        if (!url || !title || !image) return alert('Not found parameter');
         document.querySelectorAll('meta[property=og\\:url]')[0].setAttribute('content', url);
         document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
         document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
