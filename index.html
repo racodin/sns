@@ -28,7 +28,7 @@
         if (!title || !image) return;
         document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
         document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
-        window.open('http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns/')
+        window.open(`http://www.facebook.com/sharer.php?u=https://racodin.github.io/sns/&title=${title}&picture=${image}`)
       }
     }
   </script>
