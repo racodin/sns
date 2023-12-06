@@ -1,38 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type"             content="website" />
+  <meta property="og:title"            content="테스트 제목 서든어택" />
+  <meta property="og:description"      content="이미지 테스트" />
+  <meta property="og:url"              content="https://racodin.github.io/sns/"/>
+  <meta property="og:image"            content="https://img.sa.nexon.com/notice/20231129/board/header.jpg"/>
+  <meta property="og:image:secure_url" content="https://img.sa.nexon.com/notice/20231129/board/header.jpg" />
 
-  <meta property="og:url" content="https://www.youtube.com/watch?v=OUjUr5ZtY38" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Your Website Title" />
-  <meta property="og:description" content="Your description" />
-  <meta property="og:image" content="https://i.ytimg.com/vi/OUjUr5ZtY38/maxresdefault.jpg" />
-
-  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/516dea5a6b.js" crossorigin="anonymous"></script>
 </head>
-
+<style>
+  *{padding:0;margin:0}
+  body{background-color:#206767}
+  button{display:block !important;width:60px;height:60px;margin:20px;font-size:24px;color:#206767;background-color:#fff;border:0;border-radius:30px;overflow:hidden;outline:none;cursor:pointer}
+  button:hover{color:#fff;background-color:#639595}
+</style>
 <body>
-  <button
-    onclick="share.facebook({url: 'https://racodin.github.io/sns?1', title: '타이틀1111', image: 'https://img.sa.nexon.com/images/common/sns2.jpg'})">공유1</button>
-  <button
-    onclick="share.facebook({url: 'https://racodin.github.io/sns?2', title: '타이틀2222', image: 'https://globalvx.dn.nexoncdn.co.kr/Web/official/page/meta.jpg'})">공유2</button>
-  <button>공유3</button>
-  <button>공유4</button>
 
-  <script>
-    const share = {
-      facebook({ url, title, image }) {
-        if (!url || !title || !image) return alert('Not found parameter');
-        document.querySelectorAll('meta[property=og\\:url]')[0].setAttribute('content', url);
-        document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', title);
-        document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', image);
-        window.open(`http://www.facebook.com/sharer.php?u=${url}`, 'toolbar=0,status=0,width=655,height=520');
-      }
-    }
-  </script>
+<button type="button" class="btn_facebook fab fa-facebook-f image01-share">01</button>
+<button type="button" class="btn_facebook fab fa-facebook-f image02-share">02</button>
+<button type="button" class="btn_facebook fab fa-facebook-f image03-share">03</button>
+<button type="button" class="btn_facebook fab fa-facebook-f image04-share">04</button>
+<button type="button" class="btn_facebook fab fa-facebook-f image05-share">05</button>
 </body>
-
 </html>
+
+
+<script>
+
+  $(document).ready(function() {
+    // Initialize    
+    var searchParams = new URLSearchParams(window.location.search);
+    let param = searchParams.get('index');
+    if(param != null){
+      if(param == '1'){
+        $("meta[property='og\\image']").attr("content", 'https://img.sa.nexon.com/notice/20231129/board/header.jpg');
+        $("meta[property='og\\image\\secure_url']").attr("content", 'https://img.sa.nexon.com/notice/20231129/board/header.jpg');
+      } else if(param == '2'){
+        $("meta[property='og\\image']").attr("content", 'https://img-sa-file.nexon.com/dsk03/12/NX_FILE/Board/94227\02/1/000/00/01/5485423975800505397.jpg');
+        $("meta[property='og\\image\\secure_url']").attr("content", 'https://img-sa-file.nexon.com/dsk03/12/NX_FILE/Board/94227\02/1/000/00/01/5485423975800505397.jpg');
+      } else if(param == '3'){
+        $("meta[property='og\\image']").attr("content", 'https://img-sa-file.nexon.com/dsk03/15/NX_FILE/Board/94227/02/1/000/00/01/5701596766504223876.jpg');
+        $("meta[property='og\\image\\secure_url']").attr("content", 'https://img-sa-file.nexon.com/dsk03/15/NX_FILE/Board/94227/02/1/000/00/01/5701596766504223876.jpg');
+      } else if(param == '4'){
+        $("meta[property='og\\image']").attr("content", 'https://img-sa-file.nexon.com/dsk01/05/NX_FILE/Board/94227/02/1/000/00/01/4981020851894748632.jpg');
+        $("meta[property='og\\image\\secure_url']").attr("content", 'https://img-sa-file.nexon.com/dsk01/05/NX_FILE/Board/94227/02/1/000/00/01/4981020851894748632.jpg');
+      } else if(param == '5'){
+        $("meta[property='og\\image']").attr("content", 'https://img-sa-file.nexon.com/dsk02/09/NX_FILE/Board/94227/02/1/000/00/01/5269251189391754242.jpg');
+        $("meta[property='og\\image\\secure_url']").attr("content", 'https://img-sa-file.nexon.com/dsk02/09/NX_FILE/Board/94227/02/1/000/00/01/5269251189391754242.jpg');
+      }
+    } else {
+      // default
+      $("meta[property='og\\image']").attr("content", 'https://img.sa.nexon.com/notice/20231129/board/header.jpg');
+      $("meta[property='og\\image\\secure_url']").attr("content", 'https://img.sa.nexon.com/notice/20231129/board/header.jpg');
+    }
+
+    $(".image01-share").on("click", function() {
+        var url = 'https://racodin.github.io/sns?index=1';
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "width=600,height=400");
+    });
+
+    $(".image02-share").on("click", function() {
+        var url = 'https://racodin.github.io/sns?index=2';
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "width=600,height=400");
+    });
+
+    $(".image03-share").on("click", function() {
+        var url = 'https://racodin.github.io/sns?index=3';
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "width=600,height=400");
+    });
+
+    $(".image04-share").on("click", function() {
+        var url = 'https://racodin.github.io/sns?index=4';
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "width=600,height=400");
+    });
+
+    $(".image05-share").on("click", function() {
+        var url = 'https://racodin.github.io/sns?index=5';
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "width=600,height=400");
+    });
+});
+   
+</script>
